@@ -1,5 +1,16 @@
 require("Font8x12").add(Graphics);
 
+function drawSec() {
+  var d = new Date();
+  var s = d.getSeconds();
+  g.clearRect(98,50,135,80);
+  g.drawString(s.toString().padStart(2,0), 101, 50);
+
+  if (s === 0) {
+    draw();
+  }
+}
+
 function draw() {
   // work out how to display the current timed
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -30,6 +41,9 @@ function draw() {
   }
 
   g.drawString(bat + "%", 20, 80);
+
+  g.setColor(0);
+  g.setFont("8x12", 3);
 }
 
 // Clear the screen once, at startup
@@ -37,4 +51,4 @@ g.clear();
 // draw immediately at first
 draw();
 // now draw every second
-var secondInterval = setInterval(draw, 1000);
+var secondInterval = setInterval(drawSec, 1000);
