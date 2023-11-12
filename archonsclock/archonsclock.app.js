@@ -79,7 +79,7 @@ function drawSec() {
   g.reset();
   g.setFont("6x8", 3);
   g.drawImage(bgsec, 128, 42);
-  g.drawString(s.toString().padStart(2,0), 128, 40);
+  g.drawString(s.toString().padStart(2,0), 128, 43);
 
   if (s === 0) {
     draw();
@@ -99,7 +99,7 @@ function draw() {
   g.drawImage(bgtime, 0, 42);
   
   // draw the current time
-  g.drawString(time, 20, 40);
+  g.drawString(time, 20, 43);
 }
 
 function drawSlow() {
@@ -114,7 +114,7 @@ function drawSlow() {
   var dayweek = day + " " + month.toString().padStart(2,0) + "-" + date.toString().padStart(2,0);
 
   g.setFont("6x8", 2);
-  g.drawString(dayweek, 20, 20);
+  g.drawString(dayweek, 20, 25);
 
   // update battery
 
