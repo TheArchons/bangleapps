@@ -1,3 +1,9 @@
+// Show launcher when middle button pressed
+Bangle.setUI("clock");
+
+Bangle.loadWidgets();
+Bangle.drawWidgets();
+
 const storage = require('Storage');
 const locale = require('locale');
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
