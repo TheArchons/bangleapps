@@ -41,7 +41,7 @@ function draw() {
   g.setFont("6x8", 3);
 
   var h = d.getHours(), m = d.getMinutes(); s = d.getSeconds();
-  var time = h + ":" + m.toString().padStart(2,0) + ":" + s.toString().padStart(2,0);
+  var time = h.toString().padStart(2, 0) + ":" + m.toString().padStart(2,0) + ":" + s.toString().padStart(2,0);
 
   // Clear the area where we want to draw the time
   g.clearRect(0,52,170,80);
