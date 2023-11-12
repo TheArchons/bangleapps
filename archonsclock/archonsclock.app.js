@@ -118,7 +118,7 @@ function drawSlow() {
 
   // update battery
 
-  var bat = E.getBattery().toString().padStart(2,0);
+  var bat = E.getBattery();
 
   if (bat < 30) {
     g.setColor(255, 0, 0);
@@ -133,7 +133,7 @@ function drawSlow() {
 
   g.setColor(g.theme.fg);
 
-  g.drawString(temp, 60, 70);
+  g.drawString(temp, 70, 70);
 
   draw();
 }
