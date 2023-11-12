@@ -1,0 +1,7 @@
+{
+    "Diffusion": "4x4 Bayer",
+    "Brightness": "-13",
+    "Contrast": "16",
+    "Colours": "3 bit RGB",
+    "Output as": "Image Object"
+}
