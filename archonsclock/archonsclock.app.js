@@ -1,5 +1,3 @@
-require("Font8x12").add(Graphics);
-
 const storage = require('Storage');
 const locale = require('locale');
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -21,8 +19,8 @@ function getTemp() {
 function drawSec() {
   var d = new Date();
   var s = d.getSeconds();
-  g.clearRect(98,50,135,80);
-  g.drawString(s.toString().padStart(2,0), 101, 50);
+  g.clearRect(128,50,239,80);
+  g.drawString(s.toString().padStart(2,0), 128, 50);
 
   if (s === 0) {
     draw();
@@ -51,7 +49,7 @@ function drawSlow() {
   var month = d.getMonth() + 1, day = dayNames[d.getDay()], date = d.getDate();
   var dayweek = day + " " + month.toString().padStart(2,0) + "-" + date.toString().padStart(2,0);
 
-  g.setFont("8x12", 2);
+  g.setFont("6x8", 2);
   g.drawString(dayweek, 20, 30);
 
   // update battery
@@ -73,7 +71,7 @@ function drawSlow() {
 
   g.drawString(temp, 60, 80);
 
-  g.setFont("8x12", 3);
+  g.setFont("6x8", 3);
 
   g.setColor(0);
 
