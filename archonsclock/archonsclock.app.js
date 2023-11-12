@@ -84,7 +84,7 @@ function drawSlow() {
 
   g.drawString(temp, 60, 80);
 
-  g.setColor(0);
+  g.setColor(g.theme.fg);
 
   draw();
 
