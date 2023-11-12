@@ -80,11 +80,9 @@ function drawSlow() {
   // update temperature
   var temp = getTemp();
 
-  g.setColor(0, 0, 0);
+  g.setColor(g.theme.fg);
 
   g.drawString(temp, 60, 80);
-
-  g.setColor(g.theme.fg);
 
   draw();
 
