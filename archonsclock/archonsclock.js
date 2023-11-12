@@ -1,6 +1,24 @@
 require("Font8x12").add(Graphics);
 
+const storage = require('Storage');
+const locale = require('locale');
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function getTemp() {
+  var weatherJson;
+
+  try {
+    weatherJson = require("Storage").readJSON("weather.json");
+    weatherJson = storage.readJSON('weather.json');
+    let temp = weatherJson.weather.temp - 273.15;
+
+    return temp.toString().padStart(2,0) + "°C";
+  } catch (e) {
+    print(e)
+    return "--";
+  }
+}
+
 function drawSec() {
   var d = new Date();
   var s = d.getSeconds();
@@ -55,6 +73,8 @@ function drawSlow() {
 
   draw();
 }
+
+print(getTemp());
 
 // Clear the screen once, at startup
 g.clear();
