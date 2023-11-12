@@ -2,7 +2,6 @@
 Bangle.setUI("clock");
 
 Bangle.loadWidgets();
-Bangle.drawWidgets();
 
 const storage = require('Storage');
 const locale = require('locale');
@@ -82,6 +81,8 @@ function drawSlow() {
   g.setColor(0);
 
   draw();
+
+  Bangle.drawWidgets();
 }
 
 print(getTemp());
