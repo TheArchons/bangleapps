@@ -17,7 +17,7 @@ function getTemp() {
 
     return temp.toString().padStart(2,0) + "C";
   } catch (e) {
-    return "--";
+    return "";
   }
 }
 
