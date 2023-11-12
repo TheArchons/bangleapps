@@ -48,6 +48,10 @@ function draw() {
 
 function drawSlow() {
   g.clear();
+
+  Bangle.drawWidgets();
+  g.reset();
+
   var d = new Date();
 
   // update date
@@ -82,7 +86,7 @@ function drawSlow() {
 
   draw();
 
-  Bangle.drawWidgets();
+  
 }
 
 print(getTemp());
