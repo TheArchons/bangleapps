@@ -24,6 +24,8 @@ function getTemp() {
 function drawSec() {
   var d = new Date();
   var s = d.getSeconds();
+  g.reset();
+  g.setFont("6x8", 3);
   g.clearRect(128,50,239,80);
   g.drawString(s.toString().padStart(2,0), 128, 50);
 
@@ -35,6 +37,8 @@ function drawSec() {
 function draw() {
   // work out how to display the current timed
   var d = new Date();
+  g.reset();
+  g.setFont("6x8", 3);
 
   var h = d.getHours(), m = d.getMinutes(); s = d.getSeconds();
   var time = h + ":" + m.toString().padStart(2,0) + ":" + s.toString().padStart(2,0);
@@ -79,8 +83,6 @@ function drawSlow() {
   g.setColor(0, 0, 0);
 
   g.drawString(temp, 60, 80);
-
-  g.setFont("6x8", 3);
 
   g.setColor(0);
 
