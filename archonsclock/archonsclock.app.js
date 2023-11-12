@@ -78,8 +78,8 @@ function drawSec() {
   var s = d.getSeconds();
   g.reset();
   g.setFont("6x8", 3);
-  g.drawImage(bgsec, 128, 52);
-  g.drawString(s.toString().padStart(2,0), 128, 50);
+  g.drawImage(bgsec, 128, 42);
+  g.drawString(s.toString().padStart(2,0), 128, 40);
 
   if (s === 0) {
     draw();
@@ -96,10 +96,10 @@ function draw() {
   var time = h.toString().padStart(2, 0) + ":" + m.toString().padStart(2,0) + ":" + s.toString().padStart(2,0);
 
   // Clear the area where we want to draw the time
-  g.drawImage(bgtime, 0, 52);
+  g.drawImage(bgtime, 0, 42);
   
   // draw the current time
-  g.drawString(time, 20, 50);
+  g.drawString(time, 20, 40);
 }
 
 function drawSlow() {
@@ -114,7 +114,7 @@ function drawSlow() {
   var dayweek = day + " " + month.toString().padStart(2,0) + "-" + date.toString().padStart(2,0);
 
   g.setFont("6x8", 2);
-  g.drawString(dayweek, 20, 30);
+  g.drawString(dayweek, 20, 20);
 
   // update battery
 
@@ -126,19 +126,17 @@ function drawSlow() {
     g.setColor(0, 255, 0);
   }
 
-  g.drawString(bat + "%", 20, 80);
+  g.drawString(bat + "%", 20, 70);
 
   // update temperature
   var temp = getTemp();
 
   g.setColor(g.theme.fg);
 
-  g.drawString(temp, 60, 80);
+  g.drawString(temp, 60, 70);
 
   draw();
 }
-
-print(getTemp());
 
 // Clear the screen once, at startup
 g.clear();
