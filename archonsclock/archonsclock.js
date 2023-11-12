@@ -17,7 +17,7 @@ function draw() {
   var d = new Date();
 
   var h = d.getHours(), m = d.getMinutes(); s = d.getSeconds();
-  var time = h + ":" + m.toString() + ":" + s.toString().padStart(2,0);
+  var time = h + ":" + m.toString().padStart(2,0) + ":" + s.toString().padStart(2,0);
 
   // Clear the area where we want to draw the time
   g.clearRect(0,52,170,80);
@@ -32,7 +32,7 @@ function drawSlow() {
 
   // update date
   var month = d.getMonth() + 1, day = dayNames[d.getDay()], date = d.getDate();
-  var dayweek = day + " " + month + "-" + date;
+  var dayweek = day + " " + month.toString().padStart(2,0) + "-" + date.toString().padStart(2,0);
 
   g.setFont("8x12", 2);
   g.drawString(dayweek, 20, 30);
@@ -41,7 +41,7 @@ function drawSlow() {
 
   // update battery
 
-  var bat = E.getBattery();
+  var bat = E.getBattery().toString().padStart(2,0);
 
   if (bat < 30) {
     g.setColor(255, 0, 0);
