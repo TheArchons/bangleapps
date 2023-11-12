@@ -12,9 +12,8 @@ function getTemp() {
     weatherJson = storage.readJSON('weather.json');
     let temp = weatherJson.weather.temp - 273.15;
 
-    return temp.toString().padStart(2,0) + "°C";
+    return temp.toString().padStart(2,0) + "C";
   } catch (e) {
-    print(e)
     return "--";
   }
 }
@@ -55,8 +54,6 @@ function drawSlow() {
   g.setFont("8x12", 2);
   g.drawString(dayweek, 20, 30);
 
-  g.setFont("8x12", 3);
-
   // update battery
 
   var bat = E.getBattery().toString().padStart(2,0);
@@ -68,6 +65,15 @@ function drawSlow() {
   }
 
   g.drawString(bat + "%", 20, 80);
+
+  // update temperature
+  var temp = getTemp();
+
+  g.setColor(0, 0, 0);
+
+  g.drawString(temp, 60, 80);
+
+  g.setFont("8x12", 3);
 
   g.setColor(0);
 
