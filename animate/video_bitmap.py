@@ -7,6 +7,7 @@ output_dir = input("output dir: ")
 
 files = [f for f in os.listdir(video_dir)]
 files.sort()
+batch = []
 
 for fileNum, file in enumerate(files):
     # convert to bitmap
@@ -14,10 +15,15 @@ for fileNum, file in enumerate(files):
     # convert to base64
     text = subprocess.run(["base64", "--wrap=0", "temp.raw"], capture_output=True).stdout.decode()
 
-    # write to json file
-    with open(os.path.join(output_dir, f"{fileNum}.json"), "w") as f:
-        f.write(json.dumps({"data": text}))
-
+    # add into batch
+    batch.append(text)
+    
+    if fileNum % 10 == 0 and fileNum != 0:
+        # write batch
+        with open(os.path.join(output_dir, f"{fileNum//10}.json"), "w") as f:
+            json.dump({"data": batch}, f)
+        # clear batch
+        batch = []
 
 # remove temp files
 os.remove("temp.raw")

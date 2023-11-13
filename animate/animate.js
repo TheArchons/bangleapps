@@ -1,23 +1,36 @@
 // test animations
 
-let rot = 0;
-let counter = 0;
+let counter = 1;
+let batch_num = 0;
+const batch_size = 10;
+const maxCounter = 5;
 
 let sto = require("Storage");
+
+let img_data = sto.readJSON(counter + ".json")["data"];
 
 function animate() {
     g.clear();
 
-    let img_data = sto.readJSON(counter + ".json")["data"];
+    currImg = img_data[batch_num];
 
     const img = {
         width : 176, height : 132, bpp : 1,
-        buffer : atob(img_data)
+        buffer : atob(currImg)
     };
 
     // draw image
-    g.drawImage(img, 88, 88, {rotate:rot});
-    counter++;
+    g.drawImage(img, 0, 0);
+    batch_num++;
+
+    if (batch_num == batch_size) {
+        if (counter == maxCounter) {
+            counter = 0;
+        }
+        batch_num = 0;
+        counter++;
+        img_data = sto.readJSON(counter + ".json")["data"];
+    }
 }
 
 setInterval(animate, 1000/10);
