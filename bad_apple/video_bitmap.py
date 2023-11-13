@@ -17,7 +17,7 @@ batch = []
 
 for fileNum, file in enumerate(files):
     # convert to bitmap
-    subprocess.run(["convert", os.path.join(video_dir, file), "-depth", "1", "gray:temp.raw"])
+    subprocess.run(["convert", os.path.join(video_dir, file), "-depth", "1", "-negate", "gray:temp.raw"])
     # convert to base64
     text = subprocess.run(["base64", "--wrap=0", "temp.raw"], capture_output=True).stdout.decode()
 

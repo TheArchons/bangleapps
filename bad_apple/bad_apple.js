@@ -35,4 +35,4 @@ function animate() {
     }
 }
 
-setInterval(animate, 1000/10);
+setInterval(animate, 1000/30);
