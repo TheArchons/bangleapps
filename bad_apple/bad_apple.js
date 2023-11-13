@@ -4,6 +4,8 @@ let counter = 1;
 let batch_num = 0;
 const batch_size = 10;
 const maxCounter = 30;
+const img_width = 176;
+const img_height = 132;
 
 let sto = require("Storage");
 
