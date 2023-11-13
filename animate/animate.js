@@ -2,8 +2,8 @@
 
 let counter = 1;
 let batch_num = 0;
-const batch_size = 25;
-const maxCounter = 5;
+const batch_size = 10;
+const maxCounter = 30;
 
 let sto = require("Storage");
 

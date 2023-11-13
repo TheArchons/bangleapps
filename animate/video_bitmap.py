@@ -5,7 +5,7 @@ import subprocess
 video_dir = input("video dir: ")
 output_dir = input("output dir: ")
 
-batch_size = 25
+batch_size = 10
 
 files = [f for f in os.listdir(video_dir)]
 files.sort()
