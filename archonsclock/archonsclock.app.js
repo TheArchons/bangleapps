@@ -140,6 +140,18 @@ function drawSlow() {
 
 // Clear the screen once, at startup
 g.clear();
+
+// We don't want to listen to themes (especially white text), so reset it to default
+g.setTheme({
+  "fg":0,
+  "bg":65535,
+  "fg2":0,
+  "bg2":53247,
+  "fgH":0,
+  "bgH":2047,
+  "dark":false
+});
+
 // draw immediately at first
 drawSlow();
 draw();
