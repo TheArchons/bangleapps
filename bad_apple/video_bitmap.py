@@ -2,18 +2,22 @@ import os
 import json
 import subprocess
 
+def sort_key(path):
+    val = path.split(".")[0]
+    return int(val)
+
 video_dir = input("video dir: ")
 output_dir = input("output dir: ")
 
-batch_size = 10
+batch_size = 100
 
 files = [f for f in os.listdir(video_dir)]
-files.sort()
+files.sort(key=sort_key)
 batch = []
 
 for fileNum, file in enumerate(files):
     # convert to bitmap
-    subprocess.run(["convert", os.path.join(video_dir, file), "-depth", "1", "-negate", "gray:temp.raw"])
+    subprocess.run(["convert", os.path.join(video_dir, file), "-depth", "1", "gray:temp.raw"])
     # convert to base64
     text = subprocess.run(["base64", "--wrap=0", "temp.raw"], capture_output=True).stdout.decode()
 
@@ -26,6 +30,7 @@ for fileNum, file in enumerate(files):
             json.dump({"data": batch}, f)
         # clear batch
         batch = []
+        print(f"wrote {fileNum//batch_size}.json")
 
 # remove temp files
 os.remove("temp.raw")

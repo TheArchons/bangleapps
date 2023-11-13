@@ -2,22 +2,22 @@
 
 let counter = 1;
 let batch_num = 0;
-const batch_size = 10;
-const maxCounter = 30;
-const img_width = 176;
-const img_height = 132;
+const batch_size = 100;
+const maxCounter = 65;
+const img_width = 48;
+const img_height = 36;
 
 let sto = require("Storage");
 
 let img_data = sto.readJSON(counter + ".json")["data"];
 
 function animate() {
-    g.clear();
-
     currImg = img_data[batch_num];
 
     const img = {
-        width : 176, height : 132, bpp : 1,
+        width : img_width,
+        height : img_height,
+        bpp : 1,
         buffer : atob(currImg)
     };
 
