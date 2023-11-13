@@ -35,4 +35,11 @@ function animate() {
     }
 }
 
+g.clear()
+
+// add basic text
+g.reset();
+g.setFont("6x8", 2);
+g.drawString("Bad Apple\nBangle.js 2\n30fps 48x36px", 10, 88);
+
 setInterval(animate, 1000/30);
